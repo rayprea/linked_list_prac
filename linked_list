@@ -1,0 +1,53 @@
+class Node:
+    def __init__(self, value):
+        self._value = value
+        self._next = None
+
+    def get_value(self):
+        return self._value
+
+    def next(self):
+        return self._next
+
+    def __str__(self):
+        return self._value
+
+
+class LinkedList:
+    def __init__(self):
+        self._head = None
+        self._size = 0
+
+    def add(self, new):
+        self._size += 1
+        new._next = self._head
+        self._head = new
+
+    def print_nodes(self):
+        current = self._head
+        while current != None:
+            print(current)
+            current = current.next()
+
+    def __len__(self):
+        return self._size
+
+def main():
+    a_ll = LinkedList()
+    print(len(a_ll))
+
+    node1 = Node('world')
+    print(node1)
+
+    node2 = Node('hello')
+    a_ll.add(node1)
+    print(len(a_ll))
+    a_ll.add(node2)
+    print(len(a_ll))
+
+    a_ll.print_nodes()
+
+
+main()
+
+
