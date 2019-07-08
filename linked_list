@@ -17,8 +17,10 @@ class LinkedList:
     def __init__(self):
         self._head = None
         self._size = 0
+        self._tail = None
 
     def add(self, new):
+        self._tail = self._head
         self._size += 1
         new._next = self._head
         self._head = new
@@ -28,6 +30,9 @@ class LinkedList:
         while current != None:
             print(current)
             current = current.next()
+
+    def append(self, new):
+        self._tail = new
 
     def __len__(self):
         return self._size
